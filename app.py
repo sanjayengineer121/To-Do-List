@@ -16,7 +16,7 @@ db = SQLAlchemy(app)
 class TODO(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100))
-    Work = db.Column(db.String(200))
+    Work = db.Column(db.String(500))
     Done = db.Column(db.Boolean)
 
     def to_dict(self):
@@ -72,7 +72,6 @@ def logi():
     password = request.form.get("password")
     print(Username)
     print(password)
-    
 
     engine = create_engine('sqlite:///todolist.sqlite')
     Session = sessionmaker(bind=engine)
@@ -113,7 +112,6 @@ def adduser():
     else:
         return "password Not Matched kindly Try Again"
 
-
 @app.route("/add", methods=["POST"])
 def add():
     title = request.form.get("title")
@@ -141,6 +139,7 @@ def update1(todo_id):
 
 @app.route("/delete/<int:todo_id>")
 def delete(todo_id):
+
     todo = TODO.query.filter_by(id=todo_id).first()
     db.session.delete(todo)
     db.session.commit()

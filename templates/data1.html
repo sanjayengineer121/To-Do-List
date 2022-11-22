@@ -1,6 +1,11 @@
 {% extends "base.html" %}
- 
+
 {% block content %}
+<button type="button" class="btn btn-dark" id="whatsapp"><a  href="/todo" style="text-decoration: none;">Admin Login</a></button>
+
+
+<button type="button" class="btn btn-success" id="exportexcel">EXPORT CSV</button>
+
     <h1 class="ui center aligned header">To-Do List</h1>
   <form class="ui form" action="/add" method="post">
     <div class="field">
@@ -10,8 +15,7 @@
         <input type="text" name="Work" placeholder="To-Do Work Desc..."><br>
         
     </div>
-    <button class="ui blue button" type="submit">Add</button>
-    
+    <button class="ui blue button" type="submit">Add</button>    
 
 </form>
 
